@@ -24,7 +24,7 @@ docker run --memory=$memory --cpus=$cpus -v `pwd`:/app $image 2>/dev/null \
 # Test Default Garbage Collector
 echo "# Default Garbage Collector:"
 docker run --memory=$memory --cpus=$cpus -v `pwd`:/app $image 2>/dev/null \
-    java -XX:+PrintFlagsFinal -cp /app Hello | grep 'UseSerial\|UseG1\|UseParallel'
+    java -XX:+PrintFlagsFinal -cp /app Sample | grep 'UseSerial\|UseG1\|UseParallel'
 
 # Bugs:
 # - https://bugs.openjdk.org/browse/JDK-8278492
