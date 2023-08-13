@@ -24,12 +24,12 @@ docker run --memory=$memory --cpus=$cpus -v `pwd`:/app $image 2>/dev/null \
 # Test Default Garbage Collector
 echo "# Default Garbage Collector:"
 docker run --memory=$memory --cpus=$cpus -v `pwd`:/app $image 2>/dev/null \
-    java -XX:+PrintFlagsFinal  -cp /app Sample | grep 'UseSerial\|UseG1\|UseParallel\|ZGC\|Shenandoah'
+    java -XX:+PrintFlagsFinal -cp  /app Sample | grep 'UseSerial\|UseG1\|UseParallel\|ZGC\|Shenandoah'
 
 # MetaSpace
 echo "# Metaspace:"
 docker run --memory=$memory --cpus=$cpus -v `pwd`:/app $image 2>/dev/null \
-    java -XX:+PrintFlagsFinal  -cp /app Sample | grep 'Metaspace'
+    java -XX:+PrintFlagsFinal -cp /app Sample | grep 'Metaspace'
 
 # Bugs:
 # - https://bugs.openjdk.org/browse/JDK-8278492
